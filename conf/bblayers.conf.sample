@@ -14,6 +14,7 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-uav \
   ##OEROOT##/meta-ros \
   ##OEROOT##/meta-intel-aero \
+  ##OEROOT##/meta-intel-aero-drones \
   ##OEROOT##/meta-intel-realsense \
   ##OEROOT##/meta-openembedded/meta-oe \
   ##OEROOT##/meta-openembedded/meta-python \
