@@ -3,35 +3,21 @@ KBRANCH_intel-aero ?= "standard/intel/base"
 SRCREV_machine_intel-aero ?= "2cc78e92f40522d8b5f278b7099c1ae657947749"
 COMPATIBLE_MACHINE_intel-aero = "intel-aero"
 LINUX_VERSION_intel-aero = "4.4.60"
-
-KERNEL_FEATURES_INTEL_COMMON_remove = "features/amt/mei/mei.scc"
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-# List of configs to enable in kernel .config
-SRC_URI += "file://lpss.cfg \
-			file://mmc.cfg \
-			file://pinctrl.cfg \
-			file://debug.cfg \
-			file://socdts.cfg \
-			file://dma.cfg \
-			file://drone-code.cfg \
-			file://acmmbim.cfg \
-			file://nat.cfg \
-			file://spi.cfg \
-			file://usbotg.cfg \
-			file://regulator.cfg \
-			file://camera.cfg \
-			file://wdt.cfg \
-			file://disable.cfg \
-			"
+SRC_URI = "git://git.yoctoproject.org/linux-yocto-4.4.git;name=machine;branch=${KBRANCH};"
+
+# As we use a defconfig instead of linux-yocot kernel cache with fragments
+# we must disable kernel features.
+KERNEL_FEATURES_intel-aero = ""
+KERNEL_EXTRA_FEATURES_intel-aero = ""
+SRC_URI += "file://defconfig"
 
 # List of binary files
 SRC_URI += "file://shisp_2401a0_v21.bin \
 			"
 # List of patches to apply
 SRC_URI += " \
-	file://0002-media-Add-support-for-RW10-pixel-format-detection.patch \
 	file://0003-thermal-add-cherryview-support-to-soc-dts.patch \
 	file://0004-dma-dw-Allow-driver-usage-on-platforms-without-HCLK.patch \
 	file://0005-dma-dw-must-initialize-dma-channel-in-each-transacti.patch \
@@ -62,6 +48,7 @@ SRC_URI += " \
 
 # SRC_URI += " \
 # 	file://0001-Add-support-to-RealSense-camera-formats.patch \
+#   file://0002-media-Add-support-for-RW10-pixel-format-detection.patch
 # 	"
 
 do_install_append() {
