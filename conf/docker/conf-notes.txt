@@ -1,0 +1,7 @@
+Supported targets:
+    docker-image
+
+Now type
+    bitbake docker-image
+
+To build the final image
