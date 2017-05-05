@@ -9,7 +9,7 @@ BBLAYERS ?= " \
   ##OEROOT##/meta \
   ##OEROOT##/meta-poky \
   ##OEROOT##/meta-yocto-bsp \
-  ##OEROOT##/../meta-intel-aero \
   ##OEROOT##/../meta-intel \
+  ##OEROOT##/../meta-intel-aero-base \
   "
 

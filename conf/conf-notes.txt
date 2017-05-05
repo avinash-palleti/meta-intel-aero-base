@@ -1,7 +1,7 @@
 Supported targets:
-    core-image-base
-
+    aero-base-image
+    
 Now type
-    bitbake core-image-base
+    bitbake aero-base-image
 
 To build the final image
