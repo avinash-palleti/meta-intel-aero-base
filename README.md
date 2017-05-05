@@ -1,7 +1,18 @@
-# meta-intel-aero
-Yocto layer to support Intel Aero platform
+# meta-intel-aero-base
+Yocto layer with BSP for Intel Aero platform and some utilties
 
-See [wiki](https://github.com/intel-aero/meta-intel-aero/wiki) for instructions.
+For details on getting setup to build see the [Intel Aero wiki](https://github.com/intel-aero/meta-intel-aero/wiki).
+
+Build basic test image as follows
+
+    mkdir intel_aero
+    cd intel_aero
+    repo init -u https://github.com/intel-aero/intel-aero-manifest.git -b pyro -m base.xml
+    repo sync -j4
+    export TEMPLATECONF=../meta-intel-aero-base/conf
+    source poky/oe-init-build-env
+    bitbake aero-base-image
+
 
 License
 =======
